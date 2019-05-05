@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="16ddedda-64d5-427b-afb3-91f7e3e91f2e" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/game.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="85" column="40" lean-forward="true" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/player.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/neural_network.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/p5project/public/src/index_stylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="package.json" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>\</find>
+      <find>this</find>
+      <find>color</find>
+      <find>xpos</find>
+      <find>yaccel</find>
+      <find>Wallaaa</find>
+      <find>loadImage</find>
+      <find>remove</find>
+      <find>ground</find>
+      <find>group</find>
+      <find>bird</find>
+      <find>GROUND_Y</find>
+      <find>key</find>
+      <find>updateSpr</find>
+      <find>push</find>
+      <find>processing</find>
+      <find>var</find>
+      <find>update</find>
+      <find>camera</find>
+      <find>_camera</find>
+      <find>background</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>/</replace>
+      <replace>self</replace>
+      <replace>xPos</replace>
+      <replace>yAccel</replace>
+      <replace>Game_Wall</replace>
+      <replace>self.player.sprite</replace>
+      <replace>p5</replace>
+      <replace>GROUND</replace>
+      <replace>let</replace>
+      <replace>upd</replace>
+      <replace>_camera</replace>
+      <replace>camera</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Documents/p5/p5/empty-example/sketch.js" />
+        <option value="$PROJECT_DIR$/example.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$USER_HOME$/Documents/p5project/example.js" />
+        <option value="$USER_HOME$/Documents/p5project/p5/p5.js" />
+        <option value="$USER_HOME$/Documents/p5project/src/example.js" />
+        <option value="$USER_HOME$/Documents/p5project/src/walls.js" />
+        <option value="$USER_HOME$/Documents/p5project/p5.collide2d.min.js" />
+        <option value="$USER_HOME$/Documents/p5project/src/flappyBird.js" />
+        <option value="$USER_HOME$/Documents/p5project/src/player.js" />
+        <option value="$USER_HOME$/Documents/p5project/src/game.js" />
+        <option value="$USER_HOME$/Documents/p5project/index.html" />
+        <option value="$USER_HOME$/Documents/p5project/src/index.html" />
+        <option value="$USER_HOME$/Documents/p5project/src/main.js" />
+        <option value="$USER_HOME$/Documents/p5project/package.json" />
+        <option value="$USER_HOME$/Documents/p5project/server.js" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/flappyBird.js" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/game.js" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/player.js" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/index-stylesheet.css" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/index.html" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/index_stylesheet.css" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/neural_network.js" />
+        <option value="$USER_HOME$/Documents/p5project/public/src/main.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="310" />
+    <option name="y" value="-25" />
+    <option name="width" value="1400" />
+    <option name="height" value="879" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="p5project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="p5project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="p5project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="p5project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="p5project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="p5project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="p5project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="p5project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/p5project/public/assets" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\public\assets" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\assets" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\src" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\addons" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\public" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\src" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\assets" />
+      <recent name="C:\Users\Joshua Lee\Documents\p5project\addons" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$USER_HOME$/Documents/p5project/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="run" />
+      </scripts>
+      <node-interpreter value="C:/Program Files/nodejs/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16ddedda-64d5-427b-afb3-91f7e3e91f2e" name="Default Changelist" comment="" />
+      <created>1556507504598</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556507504598</updated>
+      <workItem from="1556507508631" duration="1172000" />
+      <workItem from="1556508974463" duration="1376000" />
+      <workItem from="1556511952948" duration="56843000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="59391000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1369863" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27120537" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2109375" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Documents/p5project/public/p5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5/p5/empty-example/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="53" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5/p5/empty-example/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/src/walls.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/lib/p5.collide2d.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="112" lean-forward="true" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/assets/bird.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/assets/flappy_pipe.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/p5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="1175" column="397" selection-start-line="1175" selection-start-column="389" selection-end-line="1175" selection-end-column="397" />
+          <folding>
+            <element signature="e#766#771#0" expanded="true" />
+            <element signature="e#876#881#0" expanded="true" />
+            <element signature="e#1070#1075#0" expanded="true" />
+            <element signature="e#1095#1101#0" expanded="true" />
+            <element signature="e#1107#1113#0" expanded="true" />
+            <element signature="e#766#771#0" expanded="true" />
+            <element signature="e#876#881#0" expanded="true" />
+            <element signature="e#1070#1075#0" expanded="true" />
+            <element signature="e#1095#1101#0" expanded="true" />
+            <element signature="e#1107#1113#0" expanded="true" />
+            <element signature="e#372#377#0" expanded="true" />
+            <element signature="e#460#464#0" expanded="true" />
+            <element signature="e#413#418#0" expanded="true" />
+            <element signature="e#739#744#0" expanded="true" />
+            <element signature="e#426#432#0" expanded="true" />
+            <element signature="e#444#450#0" expanded="true" />
+            <element signature="e#214#220#0" expanded="true" />
+            <element signature="e#280#286#0" expanded="true" />
+            <element signature="e#317#323#0" expanded="true" />
+            <element signature="e#326#332#0" expanded="true" />
+            <element signature="e#358#364#0" expanded="true" />
+            <element signature="e#433#439#0" expanded="true" />
+            <element signature="e#442#448#0" expanded="true" />
+            <element signature="e#457#463#0" expanded="true" />
+            <element signature="e#387#392#0" expanded="true" />
+            <element signature="e#878#882#0" expanded="true" />
+            <element signature="e#914#918#0" expanded="true" />
+            <element signature="e#1067#1071#0" expanded="true" />
+            <element signature="e#1103#1107#0" expanded="true" />
+            <element signature="e#170#175#0" expanded="true" />
+            <element signature="e#178#184#0" expanded="true" />
+            <element signature="e#188#194#0" expanded="true" />
+            <element signature="e#382#387#0" expanded="true" />
+            <element signature="e#393#398#0" expanded="true" />
+            <element signature="e#785#790#0" expanded="true" />
+            <element signature="e#805#810#0" expanded="true" />
+            <element signature="e#812#817#0" expanded="true" />
+            <element signature="e#820#825#0" expanded="true" />
+            <element signature="e#827#832#0" expanded="true" />
+            <element signature="e#838#843#0" expanded="true" />
+            <element signature="e#80#85#0" expanded="true" />
+            <element signature="e#191#196#0" expanded="true" />
+            <element signature="e#483#488#0" expanded="true" />
+            <element signature="e#500#505#0" expanded="true" />
+            <element signature="e#35#40#0" expanded="true" />
+            <element signature="e#1104#1109#0" expanded="true" />
+            <element signature="e#1471#1476#0" expanded="true" />
+            <element signature="e#169#175#0" expanded="true" />
+            <element signature="e#182#188#0" expanded="true" />
+            <element signature="e#222#228#0" expanded="true" />
+            <element signature="e#235#241#0" expanded="true" />
+            <element signature="e#315#320#0" expanded="true" />
+            <element signature="e#121#127#0" expanded="true" />
+            <element signature="e#128#134#0" expanded="true" />
+            <element signature="e#235#241#0" expanded="true" />
+            <element signature="e#242#248#0" expanded="true" />
+            <element signature="e#809#814#0" expanded="true" />
+            <element signature="e#23#27#0" expanded="true" />
+            <element signature="e#32#36#0" expanded="true" />
+            <element signature="e#890#895#0" expanded="true" />
+            <element signature="e#79#84#0" expanded="true" />
+            <element signature="e#33#39#0" expanded="true" />
+            <element signature="e#40#46#0" expanded="true" />
+            <element signature="e#28#33#0" expanded="true" />
+            <element signature="e#78#83#0" expanded="true" />
+            <element signature="e#156#161#0" expanded="true" />
+            <element signature="e#181#186#0" expanded="true" />
+            <element signature="e#294#299#0" expanded="true" />
+            <element signature="e#493#498#0" expanded="true" />
+            <element signature="e#34#39#0" expanded="true" />
+            <element signature="e#47#52#0" expanded="true" />
+            <element signature="e#81#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/node_modules/serve-static/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/lib/p5.play.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1974">
+          <caret line="168" column="25" lean-forward="true" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/flappyBird.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="121" column="14" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/assets/flappy_bird.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/index_stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/neural_network.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="85" column="40" lean-forward="true" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/p5project/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

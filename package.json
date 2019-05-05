@@ -1,0 +1,11 @@
+{
+  "name": "flappybird",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.16.4",
+    "http": "0.0.0"
+  },
+  "scripts": {
+    "run": "node server.js"
+  }
+}
