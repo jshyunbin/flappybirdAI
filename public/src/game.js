@@ -2,9 +2,10 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    self.players = [];
-    self.players.add(new Player());
-    self.players.add(new Player('AI'));
+    self.player = new Player();
+    // self.players = [];
+    // self.players.add(new Player());
+    // self.players.add(new Player('AI'));
 
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
@@ -19,13 +20,6 @@ function Game() {
 
     self.run = function() {
         if (!self.gameOver) {
-            if(self.chkDead()) {
-                self.player.bird.velocity.y = 0;
-                self.player.bird.velocity.x = 0;
-                updateSprites(false);
-                self.gameOver = true;
-            }
-
             let dist_from_pipe = width*3/4, height_from_pipe = height/2;
 
             if (frameCount % 60 === 0) {
@@ -34,8 +28,6 @@ function Game() {
                 pipe.addImage(pipeI);
                 self.pipes.add(pipe);
 
-                //TODO: make chkDead and player that represents the live players
-                if (pipe.position.x - self.players[0].position.)
 
                 // top pipe
                 if (pipeH + OPENING/2 + 50 < GROUND_Y) {
@@ -50,18 +42,25 @@ function Game() {
             for (let i = 0; i < self.pipes.length; i++)
                 if (self.pipes[i].position.x < self.player.bird.position.x - width / 2)
                     self.pipes[i].remove();
+            self.player.run(dist_from_pipe, height_from_pipe);
+            // for (let player in players) {
+            //     player.run(dist_from_pipe, height_from_pipe);
+            // }
 
-            for (let player in players) {
-                player.run(dist_from_pipe, height_from_pipe);
+            if(self.chkDead()) {
+                self.player.bird.velocity.y = 0;
+                self.player.bird.velocity.x = 0;
+                updateSprites(false);
+                self.gameOver = true;
             }
         }
         else {
             if (keyWentDown(' ')) {
                 self.newGame();
-                self.players[0].setFlap();
+                self.player.setFlap();
             }
         }
-        camera.position.x = self.players[0].bird.position.x + width/4;
+        camera.position.x = self.player.bird.position.x + width/4;
 
         // wrap ground
         if (camera.position.x > self.ground.position.x + 800/2 - width / 2)
@@ -71,24 +70,20 @@ function Game() {
         background('rgb(116,155,255)');
         camera.off();
         image(bgI, 0, GROUND_Y-190);
+        image(bgI, 400, GROUND_Y-205);
+        image(bgI, )
         camera.on();
 
         drawSprites(self.pipes);
         drawSprite(self.ground);
-        for (let player in players) drawSprite(player.bird);
+        drawSprite(self.player.bird);
 
-        self.players[0].showScore();
+        self.player.showScore();
     };
 
     self.chkDead = function() {
-        let temp = true;
-        for (let player in players) {
-            if(!(player.bird.position.y + player.bird.height / 2 > GROUND_Y) || !(player.bird.overlap(self.pipes))) temp = false;
-            else {
-                player.isDead = true;
-            }
-        }
-        return temp;
+        if((self.player.bird.position.y + self.player.bird.height / 2 > GROUND_Y) || (self.player.bird.overlap(self.pipes))) return true;
+        else return false;
     };
 
     self.newGame = function () {
