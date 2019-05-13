@@ -10,17 +10,17 @@ function Player(type='') {
     self.bird.addImage(playerI);
     self.score = self.bird.position.x-width/2;
     self.type = type;
-    self.nn = undefined;
+    self.nn = new NeuralNet();
     self.isDead = false;
+    self.distFromPipe = width*3/4;
+    self.heightFromPipe = height/2;
 
-    if (self.type === 'AI')
-        self.nn = new NeuralNet();
 
-    self.run = function(dist, height) {
-        //TODO: make dead players don't move!!!
+    self.run = function() {
+        if (self.isDead) return;
         if (self.type === 'AI') {
-            if (self.nn.chkMove(dist, height))
-            self.bird.velocity.y = FLAP;
+            if (self.nn.chkMove(self.distFromPipe, self.heightFromPipe))
+                self.bird.velocity.y = FLAP;
         }
         else if (keyWentDown(' '))
             self.bird.velocity.y = FLAP;
@@ -29,15 +29,12 @@ function Player(type='') {
 
         if(self.bird.position.y<0)
             self.bird.position.y = 0;
+
+        self.score = self.bird.position.x-width/2;
     };
 
     self.setFlap = function() {
         self.bird.velocity.y = FLAP;
-    };
-
-    self.showScore = function() {
-        self.score = self.bird.position.x-width/2;
-        text("SCORE: "+self.score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
     };
 
 

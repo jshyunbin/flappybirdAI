@@ -22,3 +22,7 @@ function keyPressed() {
     if (key === 'p') noLoop();
     else if (key === 'r') loop();
 }
+
+function start() {
+    game.newGame();
+}

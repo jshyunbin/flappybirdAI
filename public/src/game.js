@@ -2,10 +2,10 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    self.player = new Player();
-    // self.players = [];
-    // self.players.add(new Player());
-    // self.players.add(new Player('AI'));
+    // self.player = new Player();
+    self.players = [];
+    self.players.push(new Player());
+    self.players.push(new Player('AI'));
 
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
@@ -19,9 +19,9 @@ function Game() {
     camera.position.y = height/2;
 
     self.run = function() {
+        let bestPlayer_ind = 0, bestPlayer_dist = 0;
         if (!self.gameOver) {
-            let dist_from_pipe = width*3/4, height_from_pipe = height/2;
-
+            // creating pipes
             if (frameCount % 60 === 0) {
                 let pipeH = random(50, 300);
                 let pipe = createSprite(camera.position.x + width, GROUND_Y - pipeH / 2 + 100, 80, pipeH);
@@ -38,29 +38,40 @@ function Game() {
                     self.pipes.add(pipe);
                 }
                 if (OPENING > 100) OPENING -= 5;
-            }
-            for (let i = 0; i < self.pipes.length; i++)
-                if (self.pipes[i].position.x < self.player.bird.position.x - width / 2)
+            } // creating pipes
+
+            // removing pipes
+            for (let i = 0; i < self.pipes.length; i++) {
+                if (self.pipes[i].position.x < camera.position.x - width / 2)
                     self.pipes[i].remove();
-            self.player.run(dist_from_pipe, height_from_pipe);
-            // for (let player in players) {
-            //     player.run(dist_from_pipe, height_from_pipe);
-            // }
+            }
+
+            // set player distance from pipes and height difference
+            for (let j = 0; j < self.players.length; j++) {
+                for (let i = 0; i < self.pipes.length; i++) {
+                    if (self.pipes[i].position.x - self.players[j].bird.position.x > 0) {
+                        self.players[j].distFromPipe = self.pipes[i].position.x - self.players[j].bird.position.x;
+                        self.players[j].heightFromPipe = self.pipes[i].position.y - self.players[j].bird.position.y;
+                        if (bestPlayer_dist < self.players[j].bird.position.x) {
+                            bestPlayer_dist = self.players[j].bird.position.x;
+                            bestPlayer_ind = j;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            // running players
+            for (let i = 0; i < self.players.length; i++) {
+                self.players[i].run();
+            }
 
             if(self.chkDead()) {
-                self.player.bird.velocity.y = 0;
-                self.player.bird.velocity.x = 0;
                 updateSprites(false);
                 self.gameOver = true;
             }
         }
-        else {
-            if (keyWentDown(' ')) {
-                self.newGame();
-                self.player.setFlap();
-            }
-        }
-        camera.position.x = self.player.bird.position.x + width/4;
+        camera.position.x = self.players[bestPlayer_ind].bird.position.x + width/4;
 
         // wrap ground
         if (camera.position.x > self.ground.position.x + 800/2 - width / 2)
@@ -70,34 +81,48 @@ function Game() {
         background('rgb(116,155,255)');
         camera.off();
         image(bgI, 0, GROUND_Y-190);
-        image(bgI, 400, GROUND_Y-205);
-        image(bgI, )
         camera.on();
 
         drawSprites(self.pipes);
         drawSprite(self.ground);
-        drawSprite(self.player.bird);
+        for (let player in self.players)
+            drawSprite(player.bird);
 
-        self.player.showScore();
+        self.showScore(bestPlayer_ind);
     };
 
     self.chkDead = function() {
-        if((self.player.bird.position.y + self.player.bird.height / 2 > GROUND_Y) || (self.player.bird.overlap(self.pipes))) return true;
-        else return false;
+        let chkAllDead = true;
+        for (let i = 0; i < self.players.length; i++) {
+            if (self.players[i].bird.position.y + self.players[i].bird.height / 2 > GROUND_Y || self.players[i].bird.overlap(self.pipes)) {
+                self.players[i].bird.velocity.y = 0;
+                self.players[i].bird.velocity.x = 0;
+                self.players[i].isDead = true;
+            }
+            else chkAllDead = false;
+        }
+        return chkAllDead;
     };
 
     self.newGame = function () {
         self.pipes.removeSprites();
         self.gameOver = false;
         updateSprites(true);
-        self.player.bird.position.x = width/2;
-        self.player.bird.position.y = height/2;
-        self.player.bird.velocity.y = 0;
-        self.player.bird.velocity.x = 4;
+        for (let i = 0; i < self.players.length; i++) {
+            self.players[i].bird.position.x = width/2;
+            self.players[i].bird.position.y = height/2;
+            self.players[i].bird.velocity.y = 0;
+            self.players[i].bird.velocity.x = 4;
+            self.players[i].isDead = false;
+        }
         self.ground.position.x = 800/2;
         self.ground.position.y = GROUND_Y+100;
         self.score = 0;
         OPENING = 300;
+    };
+
+    self.showScore = function(bestPlayer_ind) {
+        text("BEST PLAYER'S SCORE: "+self.players[bestPlayer_ind].score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
     };
 
 
