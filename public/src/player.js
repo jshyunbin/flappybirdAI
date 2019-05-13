@@ -6,7 +6,7 @@ function Player(type='') {
     self.bird = createSprite(width/2, height/2, 40, 40);
     self.bird.rotateToDirection = true;
     self.bird.velocity.x = 0;
-    self.bird.setCollider('circle', 0, 0, 20, 20);
+    self.bird.setCollider('circle', 0, 0, 20);
     self.bird.addImage(playerI);
     self.score = self.bird.position.x-width/2;
     self.type = type;

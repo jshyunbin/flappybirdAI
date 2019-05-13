@@ -2,10 +2,11 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    // self.player = new Player();
+    let PLAYER_NUM = 20
     self.players = [];
-    self.players.push(new Player());
-    self.players.push(new Player('AI'));
+
+    for (i = 0; i < PLAYER_NUM; i++)
+        self.players.push(new Player('AI'));
 
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
@@ -85,8 +86,8 @@ function Game() {
 
         drawSprites(self.pipes);
         drawSprite(self.ground);
-        for (let player in self.players)
-            drawSprite(player.bird);
+        for (let i = 0; i < self.players.length; i++)
+            drawSprite(self.players[i].bird);
 
         self.showScore(bestPlayer_ind);
     };
