@@ -2,12 +2,8 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    let PLAYER_NUM = 20
-    self.players = [];
-
-    for (i = 0; i < PLAYER_NUM; i++)
-        self.players.push(new Player('AI'));
-
+    self.players = new Population();
+    
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
     self.ground.addImage(groundI);
@@ -48,13 +44,13 @@ function Game() {
             }
 
             // set player distance from pipes and height difference
-            for (let j = 0; j < self.players.length; j++) {
+            for (let j = 0; j < self.players.population.length; j++) {
                 for (let i = 0; i < self.pipes.length; i++) {
-                    if (self.pipes[i].position.x - self.players[j].bird.position.x > 0) {
-                        self.players[j].distFromPipe = self.pipes[i].position.x - self.players[j].bird.position.x;
-                        self.players[j].heightFromPipe = self.pipes[i].position.y - self.players[j].bird.position.y;
-                        if (bestPlayer_dist < self.players[j].bird.position.x) {
-                            bestPlayer_dist = self.players[j].bird.position.x;
+                    if (self.pipes[i].position.x - self.players.population[j].bird.position.x > 0) {
+                        self.players.population[j].distFromPipe = self.pipes[i].position.x - self.players.population[j].bird.position.x;
+                        self.players.population[j].heightFromPipe = self.pipes[i].position.y - self.players.population[j].bird.position.y;
+                        if (bestPlayer_dist < self.players.population[j].bird.position.x) {
+                            bestPlayer_dist = self.players.population[j].bird.position.x;
                             bestPlayer_ind = j;
                         }
                         break;
@@ -63,8 +59,8 @@ function Game() {
             }
 
             // running players
-            for (let i = 0; i < self.players.length; i++) {
-                self.players[i].run();
+            for (let i = 0; i < self.players.population.length; i++) {
+                self.players.population[i].run();
             }
 
             if(self.chkDead()) {
@@ -72,7 +68,7 @@ function Game() {
                 self.gameOver = true;
             }
         }
-        camera.position.x = self.players[bestPlayer_ind].bird.position.x + width/4;
+        camera.position.x = self.players.population[bestPlayer_ind].bird.position.x + width/4;
 
         // wrap ground
         if (camera.position.x > self.ground.position.x + 800/2 - width / 2)
@@ -86,19 +82,19 @@ function Game() {
 
         drawSprites(self.pipes);
         drawSprite(self.ground);
-        for (let i = 0; i < self.players.length; i++)
-            drawSprite(self.players[i].bird);
+        for (let i = 0; i < self.players.population.length; i++)
+            drawSprite(self.players.population[i].bird);
 
         self.showScore(bestPlayer_ind);
     };
 
     self.chkDead = function() {
         let chkAllDead = true;
-        for (let i = 0; i < self.players.length; i++) {
-            if (self.players[i].bird.position.y + self.players[i].bird.height / 2 > GROUND_Y || self.players[i].bird.overlap(self.pipes)) {
-                self.players[i].bird.velocity.y = 0;
-                self.players[i].bird.velocity.x = 0;
-                self.players[i].isDead = true;
+        for (let i = 0; i < self.players.population.length; i++) {
+            if (self.players.population[i].bird.position.y + self.players.population[i].bird.height / 2 > GROUND_Y || self.players.population[i].bird.overlap(self.pipes)) {
+                self.players.population[i].bird.velocity.y = 0;
+                self.players.population[i].bird.velocity.x = 0;
+                self.players.population[i].isDead = true;
             }
             else chkAllDead = false;
         }
@@ -109,12 +105,12 @@ function Game() {
         self.pipes.removeSprites();
         self.gameOver = false;
         updateSprites(true);
-        for (let i = 0; i < self.players.length; i++) {
-            self.players[i].bird.position.x = width/2;
-            self.players[i].bird.position.y = height/2;
-            self.players[i].bird.velocity.y = 0;
-            self.players[i].bird.velocity.x = 4;
-            self.players[i].isDead = false;
+        for (let i = 0; i < self.players.population.length; i++) {
+            self.players.population[i].bird.position.x = width/2;
+            self.players.population[i].bird.position.y = height/2;
+            self.players.population[i].bird.velocity.y = 0;
+            self.players.population[i].bird.velocity.x = 4;
+            self.players.population[i].isDead = false;
         }
         self.ground.position.x = 800/2;
         self.ground.position.y = GROUND_Y+100;
@@ -123,7 +119,7 @@ function Game() {
     };
 
     self.showScore = function(bestPlayer_ind) {
-        text("BEST PLAYER'S SCORE: "+self.players[bestPlayer_ind].score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
     };
 
 

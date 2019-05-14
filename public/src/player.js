@@ -1,4 +1,4 @@
-function Player(type='') {
+function Player(type='', gene=new DNA()) {
     let self = this;
     let FLAP = -7;
     let GRAVITY = 0.3;
@@ -10,7 +10,7 @@ function Player(type='') {
     self.bird.addImage(playerI);
     self.score = self.bird.position.x-width/2;
     self.type = type;
-    self.nn = new NeuralNet();
+    self.nn = new NeuralNet(gene);
     self.isDead = false;
     self.distFromPipe = width*3/4;
     self.heightFromPipe = height/2;
@@ -37,6 +37,9 @@ function Player(type='') {
         self.bird.velocity.y = FLAP;
     };
 
+    self.crossover = function(parentB) {
+
+    };
 
     return self;
 }
