@@ -1,5 +1,6 @@
 let game;
 let playerI, bgI, pipeI, groundI;
+let gameStarted = false;
 
 function preload() {
     playerI = loadImage("../assets/flappy_bird.png");
@@ -24,5 +25,6 @@ function keyPressed() {
 }
 
 function start() {
+    gameStarted = true;
     game.newGame();
 }

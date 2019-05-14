@@ -3,7 +3,7 @@ function Game() {
     let GROUND_Y = 450;
     let OPENING = 300;
     self.players = new Population();
-    
+
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
     self.ground.addImage(groundI);
@@ -68,6 +68,26 @@ function Game() {
                 self.gameOver = true;
             }
         }
+        else {
+            console.log(gameStarted);
+            if (!gameStarted) return;
+            self.players.selection();
+            self.players.reproduction();
+            self.pipes.removeSprites();
+            for (let i = 0; i < self.players.population.length; i++) {
+                self.players.population[i].bird.position.x = width/2;
+                self.players.population[i].bird.position.y = height/2;
+                self.players.population[i].bird.velocity.y = 0;
+                self.players.population[i].bird.velocity.x = 4;
+                self.players.population[i].isDead = false;
+            }
+            self.ground.position.x = 800/2;
+            self.ground.position.y = GROUND_Y+100;
+            self.score = 0;
+            OPENING = 300;
+            self.gameOver = false;
+            updateSprites(true);
+        }
         camera.position.x = self.players.population[bestPlayer_ind].bird.position.x + width/4;
 
         // wrap ground
@@ -85,12 +105,15 @@ function Game() {
         for (let i = 0; i < self.players.population.length; i++)
             drawSprite(self.players.population[i].bird);
 
+        // show scoreboards and current generation
         self.showScore(bestPlayer_ind);
+        self.showGeneration();
     };
 
     self.chkDead = function() {
         let chkAllDead = true;
         for (let i = 0; i < self.players.population.length; i++) {
+            if (self.players.population[i].isDead === true) continue;
             if (self.players.population[i].bird.position.y + self.players.population[i].bird.height / 2 > GROUND_Y || self.players.population[i].bird.overlap(self.pipes)) {
                 self.players.population[i].bird.velocity.y = 0;
                 self.players.population[i].bird.velocity.x = 0;
@@ -112,6 +135,7 @@ function Game() {
             self.players.population[i].bird.velocity.x = 4;
             self.players.population[i].isDead = false;
         }
+        self.players.generations = 1;
         self.ground.position.x = 800/2;
         self.ground.position.y = GROUND_Y+100;
         self.score = 0;
@@ -120,6 +144,11 @@ function Game() {
 
     self.showScore = function(bestPlayer_ind) {
         text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+    };
+
+    self.showGeneration = function() {
+        text("Generations: " + self.players.generations, camera.position.x-width/2+10, camera.position.y-width/2-10);
+        text("Total Birds: " + self.players.population.length, camera.position.x-width/2+10, camera.position.y-width/2+10);
     };
 
 
