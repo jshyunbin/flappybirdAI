@@ -29,8 +29,6 @@ function Player(type='', gene=new DNA()) {
 
         if(self.bird.position.y<0)
             self.bird.position.y = 0;
-
-        self.score = self.bird.position.x-width/2;
     };
 
     self.setFlap = function() {
@@ -42,7 +40,7 @@ function Player(type='', gene=new DNA()) {
         let weight2 = math.zeros([3, 1]);
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 3; j++) {
-                weight1[i][j] = random() > 0.5 ? parentB.nn.gene.weight1[i][j] : self.nn.gene.weight1[i][j];
+                weight1[i][j] = random() > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.05) : self.nn.gene.weight1[i][j] + randomGaussian(0, 0.05);
             }
         }
         for (let i = 0; i < 3; i++) weight2[i][0] = random() > 0.5 ? parentB.nn.gene.weight2[i][0] : self.nn.gene.weight2[i][0];

@@ -27,7 +27,7 @@ function Game() {
 
 
                 // top pipe
-                if (pipeH + OPENING/2 + 50 < GROUND_Y) {
+                if (pipeH + OPENING/2  < GROUND_Y) {
                     pipeH = height - (height - GROUND_Y) - (pipeH + OPENING);
                     pipe = createSprite(camera.position.x + width, pipeH / 2 - 100, 80, pipeH);
                     pipe.mirrorY(-1);
@@ -47,6 +47,8 @@ function Game() {
             for (let j = 0; j < self.players.population.length; j++) {
                 for (let i = 0; i < self.pipes.length; i++) {
                     if (self.pipes[i].position.x - self.players.population[j].bird.position.x > 0) {
+                        if (self.players.population[j].distFromPipe < self.pipes[i].position.x - self.players.population[j].bird.position.x)
+                            self.players.population[j].score += 1;
                         self.players.population[j].distFromPipe = self.pipes[i].position.x - self.players.population[j].bird.position.x;
                         self.players.population[j].heightFromPipe = self.pipes[i].position.y - self.players.population[j].bird.position.y;
                         if (bestPlayer_dist < self.players.population[j].bird.position.x) {
@@ -69,7 +71,6 @@ function Game() {
             }
         }
         else {
-            console.log(gameStarted);
             if (!gameStarted) return;
             self.players.selection();
             self.players.reproduction();
@@ -143,7 +144,7 @@ function Game() {
     };
 
     self.showScore = function(bestPlayer_ind) {
-        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].score/100, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].score, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
     };
 
     self.showGeneration = function() {

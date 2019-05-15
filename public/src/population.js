@@ -1,7 +1,7 @@
 function Population() {
     let self = this;
 
-    self.PLAYER_NUM = 100;
+    self.PLAYER_NUM = 30;
     self.generations = 1;
     self.population = [];
     for (let i = 0; i < self.PLAYER_NUM; i++) self.population.push(new Player('AI'));
@@ -13,7 +13,9 @@ function Population() {
             self.matingPool.pop();
 
         for (let i = 0; i < self.population.length; i++) {
-            let n = int(self.population[i].score + 10);
+            let fitness = (self.population[i].score * 3 - self.population[i].distFromPipe/100 + width/400+ 1);
+            fitness = math.pow(fitness*10, 3);
+            let n = int(fitness);
             for (let j = 0; j < n; j++) {
                 self.matingPool.push(self.population[i]);
             }
