@@ -9,6 +9,7 @@ function Population() {
     self.matingPool = [];
 
     self.selection = function() {
+        // TODO: save top players for next generation
         while(self.matingPool.length !== 0)
             self.matingPool.pop();
 
