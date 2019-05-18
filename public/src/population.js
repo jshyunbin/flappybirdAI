@@ -8,8 +8,11 @@ function Population() {
 
     self.matingPool = [];
 
-    self.selection = function() {
+    let bestPlayerBrain;
+
+    self.selection = function(bestPlayerNN) {
         // TODO: save top players for next generation
+        bestPlayerBrain = bestPlayerNN;
         while(self.matingPool.length !== 0)
             self.matingPool.pop();
 
@@ -28,8 +31,8 @@ function Population() {
         while(self.population.length !== 0)
             self.population.pop();
 
-
-        for (let i = 0; i < self.PLAYER_NUM; i++) {
+        self.population.push(new Player('AI', bestPlayerBrain.gene));
+        for (let i = 0; i < self.PLAYER_NUM-1; i++) {
             let a = int(math.random(self.matingPool.length));
             let b = int(math.random(self.matingPool.length));
 

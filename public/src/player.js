@@ -40,7 +40,7 @@ function Player(type='', gene=new DNA()) {
         let weight2 = math.zeros([3, 1]);
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 3; j++) {
-                weight1[i][j] = random() > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.05) : self.nn.gene.weight1[i][j] + randomGaussian(0, 0.05);
+                weight1[i][j] = random() > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.01) : self.nn.gene.weight1[i][j] + randomGaussian(0, 0.01);
             }
         }
         for (let i = 0; i < 3; i++) weight2[i][0] = random() > 0.5 ? parentB.nn.gene.weight2[i][0] : self.nn.gene.weight2[i][0];

@@ -72,7 +72,7 @@ function Game() {
         }
         else {
             if (!gameStarted) return;
-            self.players.selection();
+            self.players.selection(self.players.population[bestPlayer_ind].nn);
             self.players.reproduction();
             self.pipes.removeSprites();
             for (let i = 0; i < self.players.population.length; i++) {
