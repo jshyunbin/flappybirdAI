@@ -16,6 +16,7 @@ function Game() {
     camera.position.y = height/2;
 
     self.run = function() {
+        // TODO: find the dump memory source
         let bestPlayer_ind = 0, bestPlayer_dist = 0;
         if (!self.gameOver) {
             // creating pipes

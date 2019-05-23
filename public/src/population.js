@@ -11,7 +11,6 @@ function Population() {
     let bestPlayerBrain;
 
     self.selection = function(bestPlayerNN) {
-        // TODO: save top players for next generation
         bestPlayerBrain = bestPlayerNN;
         while(self.matingPool.length !== 0)
             self.matingPool.pop();
