@@ -8,22 +8,32 @@ function Population() {
 
     self.matingPool = [];
 
-    let bestPlayerBrain;
+    let bestPlayerBrain = undefined;
+    let bestPlayerfitness = undefined;
 
-    self.selection = function(bestPlayerNN) {
-        bestPlayerBrain = bestPlayerNN;
+    self.selection = function() {
         while(self.matingPool.length !== 0)
             self.matingPool.pop();
 
         for (let i = 0; i < self.population.length; i++) {
-            let fitness = (self.population[i].score * 3 - self.population[i].distFromPipe/100 + width/400+ 1);
-            fitness = math.pow(fitness*10, 3);
+            let fitness = (self.population[i].score * 10 - self.population[i].distFromPipe/100+ 1);
+            fitness = math.pow(fitness, 2)/10;
+            if (bestPlayerfitness === undefined) {
+                bestPlayerfitness = fitness;
+                bestPlayerBrain = self.population[i].nn;
+            }
+            else if (bestPlayerfitness < fitness) {
+                bestPlayerfitness = fitness;
+                bestPlayerBrain = self.population[i].nn;
+            }
             let n = int(fitness);
             for (let j = 0; j < n; j++) {
                 self.matingPool.push(self.population[i]);
             }
         }
-
+        console.log(bestPlayerBrain);
+        console.log(bestPlayerfitness);
+        console.log(self.matingPool.length);
     };
 
     self.reproduction = function() {

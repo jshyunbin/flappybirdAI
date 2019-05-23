@@ -36,14 +36,14 @@ function Player(type='', gene=new DNA()) {
     };
 
     self.crossover = function(parentB) {
-        let weight1 = math.zeros([2, 3]);
-        let weight2 = math.zeros([3, 1]);
+        let weight1 = math.zeros([2, 5]);
+        let weight2 = math.zeros([5, 1]);
         for (let i = 0; i < 2; i++) {
-            for (let j = 0; j < 3; j++) {
-                weight1[i][j] = random() > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.01) : self.nn.gene.weight1[i][j] + randomGaussian(0, 0.01);
+            for (let j = 0; j < 5; j++) {
+                weight1[i][j] = (random(0, 1) > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.4): self.nn.gene.weight1[i][j] + randomGaussian(0, 0.4));
             }
         }
-        for (let i = 0; i < 3; i++) weight2[i][0] = random() > 0.5 ? parentB.nn.gene.weight2[i][0] : self.nn.gene.weight2[i][0];
+        for (let i = 0; i < 5; i++) weight2[i][0] = (random(0, 1) > 0.5 ? parentB.nn.gene.weight2[i][0] + randomGaussian(0, 0.4): self.nn.gene.weight2[i][0] + randomGaussian(0, 0.4));
         return new DNA(weight1, weight2);
     };
 
