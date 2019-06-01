@@ -1,4 +1,4 @@
-function Popul() {
+function Population() {
     let self = this;
 
     self.PLAYER_NUM = 10;

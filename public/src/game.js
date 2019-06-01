@@ -2,7 +2,7 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    self.players = new Popul();
+    self.players = new Population();
 
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
