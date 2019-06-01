@@ -1,6 +1,7 @@
 let game;
 let playerI, bgI, pipeI, groundI;
 let gameStarted = false;
+let crossoverType = 'default';
 
 function preload() {
     playerI = loadImage("../assets/flappy_bird.png");
