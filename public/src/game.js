@@ -2,13 +2,14 @@ function Game() {
     let self = this;
     let GROUND_Y = 450;
     let OPENING = 300;
-    self.players = new Population();
+    self.players = new Popul();
 
     self.ground = createSprite(800/2, GROUND_Y+100); // image 800x200
     self.ground.setVelocity(0,0);
     self.ground.addImage(groundI);
 
     self.pipes = new Group();
+    self.pipeHeight = [];
     self.gameOver = true;
     updateSprites(false);
 
@@ -25,7 +26,7 @@ function Game() {
                 let pipe = createSprite(camera.position.x + width, GROUND_Y - pipeH / 2 + 100, 80, pipeH);
                 pipe.addImage(pipeI);
                 self.pipes.add(pipe);
-
+                self.pipeHeight.push(pipeH+OPENING/2);
 
                 // top pipe
                 if (pipeH + OPENING/2  < GROUND_Y) {
@@ -34,24 +35,27 @@ function Game() {
                     pipe.mirrorY(-1);
                     pipe.addImage(pipeI);
                     self.pipes.add(pipe);
+                    self.pipeHeight.push(pipeH+OPENING/2);
                 }
                 if (OPENING > 100) OPENING -= 5;
             } // creating pipes
 
             // removing pipes
             for (let i = 0; i < self.pipes.length; i++) {
-                if (self.pipes[i].position.x < camera.position.x - width / 2)
+                if (self.pipes[i].position.x < camera.position.x - width / 2) {
                     self.pipes[i].remove();
+                    self.pipeHeight.splice(i, 1);
+                }
             }
 
             // set player distance from pipes and height difference
             for (let j = 0; j < self.players.population.length; j++) {
-                for (let i = 0; i < self.pipes.length; i++) {
+                for (let i = self.pipes.length-1; i >= 0; i--) {
                     if (self.pipes[i].position.x - self.players.population[j].bird.position.x > 0) {
                         if (self.players.population[j].distFromPipe < self.pipes[i].position.x - self.players.population[j].bird.position.x)
                             self.players.population[j].score += 1;
                         self.players.population[j].distFromPipe = self.pipes[i].position.x - self.players.population[j].bird.position.x;
-                        self.players.population[j].heightFromPipe = self.pipes[i].position.y - self.players.population[j].bird.position.y;
+                        self.players.population[j].heightFromPipe = self.pipeHeight[i] - self.players.population[j].bird.position.y;
                         if (bestPlayer_dist < self.players.population[j].bird.position.x) {
                             bestPlayer_dist = self.players.population[j].bird.position.x;
                             bestPlayer_ind = j;
@@ -127,10 +131,12 @@ function Game() {
     };
 
     self.newGame = function () {
+        console.log("passed thorough new Game func");
         self.pipes.removeSprites();
         self.gameOver = false;
         updateSprites(true);
         for (let i = 0; i < self.players.population.length; i++) {
+            self.players.population[i].nn.gene.clear();
             self.players.population[i].bird.position.x = width/2;
             self.players.population[i].bird.position.y = height/2;
             self.players.population[i].bird.velocity.y = 0;
@@ -145,7 +151,7 @@ function Game() {
     };
 
     self.showScore = function(bestPlayer_ind) {
-        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].score, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].bird.position.x, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
     };
 
     self.showGeneration = function() {

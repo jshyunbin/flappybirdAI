@@ -8,7 +8,6 @@ function Player(type='', gene=new DNA()) {
     self.bird.velocity.x = 0;
     self.bird.setCollider('circle', 0, 0, 20);
     self.bird.addImage(playerI);
-    self.score = self.bird.position.x-width/2;
     self.type = type;
     self.nn = new NeuralNet(gene);
     self.isDead = false;
@@ -33,18 +32,6 @@ function Player(type='', gene=new DNA()) {
 
     self.setFlap = function() {
         self.bird.velocity.y = FLAP;
-    };
-
-    self.crossover = function(parentB) {
-        let weight1 = math.zeros([2, 5]);
-        let weight2 = math.zeros([5, 1]);
-        for (let i = 0; i < 2; i++) {
-            for (let j = 0; j < 5; j++) {
-                weight1[i][j] = (random(0, 1) > 0.5 ? parentB.nn.gene.weight1[i][j] + randomGaussian(0, 0.4): self.nn.gene.weight1[i][j] + randomGaussian(0, 0.4));
-            }
-        }
-        for (let i = 0; i < 5; i++) weight2[i][0] = (random(0, 1) > 0.5 ? parentB.nn.gene.weight2[i][0] + randomGaussian(0, 0.4): self.nn.gene.weight2[i][0] + randomGaussian(0, 0.4));
-        return new DNA(weight1, weight2);
     };
 
     return self;
