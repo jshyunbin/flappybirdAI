@@ -1,6 +1,6 @@
-function DNA(weight1 = math.random([2, 5], -1, 1), weight2 = math.random([5, 1], -1, 1)) {
+function DNA(weight1 = math.random([2, 5], -1.0, 1.0), weight2 = math.random([5, 1], -1.0, 1.0)) {
     let self = this;
-    let MUTATION_RATE = 0.09;
+    let MUTATION_RATE = 0.05;
 
     self.weight1 = weight1;
     self.weight2 = weight2;

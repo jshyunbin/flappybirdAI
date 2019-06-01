@@ -21,12 +21,12 @@ function Game() {
         let bestPlayer_ind = 0, bestPlayer_dist = 0;
         if (!self.gameOver) {
             // creating pipes
-            if (frameCount % 60 === 0) {
-                let pipeH = random(50, 300);
+            if (frameCount % 80 === 0) {
+                let pipeH = math.random(50.0, 300.0);
                 let pipe = createSprite(camera.position.x + width, GROUND_Y - pipeH / 2 + 100, 80, pipeH);
                 pipe.addImage(pipeI);
                 self.pipes.add(pipe);
-                self.pipeHeight.push(pipeH+OPENING/2);
+                self.pipeHeight.push(GROUND_Y - pipeH / 2 + 100);
 
                 // top pipe
                 if (pipeH + OPENING/2  < GROUND_Y) {
@@ -54,14 +54,17 @@ function Game() {
                     if (self.pipes[i].position.x - self.players.population[j].bird.position.x > 0) {
                         if (self.players.population[j].distFromPipe < self.pipes[i].position.x - self.players.population[j].bird.position.x)
                             self.players.population[j].score += 1;
-                        self.players.population[j].distFromPipe = self.pipes[i].position.x - self.players.population[j].bird.position.x;
-                        self.players.population[j].heightFromPipe = self.pipeHeight[i] - self.players.population[j].bird.position.y;
+
                         if (bestPlayer_dist < self.players.population[j].bird.position.x) {
                             bestPlayer_dist = self.players.population[j].bird.position.x;
                             bestPlayer_ind = j;
                         }
                         break;
                     }
+                }
+                if (self.pipes.length >= 1) {
+                    self.players.population[j].distFromPipe = self.pipes[0].position.x - self.players.population[j].bird.position.x;
+                    self.players.population[j].heightFromPipe = self.pipeHeight[0] - self.players.population[j].bird.position.y;
                 }
             }
 
@@ -86,6 +89,11 @@ function Game() {
                 self.players.population[i].bird.velocity.y = 0;
                 self.players.population[i].bird.velocity.x = 4;
                 self.players.population[i].isDead = false;
+                self.players.population[i].distFromPipe = width*3/4;
+                self.players.population[i].heightFromPipe = height/2;
+            }
+            while(self.pipeHeight.length !== 0) {
+                self.pipeHeight.pop();
             }
             self.ground.position.x = 800/2;
             self.ground.position.y = GROUND_Y+100;
@@ -114,6 +122,7 @@ function Game() {
         // show scoreboards and current generation
         self.showScore(bestPlayer_ind);
         self.showGeneration();
+        self.showDistFromPipe(bestPlayer_ind);
     };
 
     self.chkDead = function() {
@@ -158,6 +167,12 @@ function Game() {
         text("Generations: " + self.players.generations, camera.position.x-width/2+10, camera.position.y-width/2-10);
         text("Total Birds: " + self.players.population.length, camera.position.x-width/2+10, camera.position.y-width/2+10);
     };
+
+    self.showDistFromPipe = function(bestPlayer_ind) {
+        text("Distance from Pipe: " + self.players.population[bestPlayer_ind].distFromPipe, camera.position.x-width/2 + 10, camera.position.y-width/2 + 30);
+        text("Height difference from Pipe: " + self.players.population[bestPlayer_ind].heightFromPipe, camera.position.x-width/2 + 10, camera.position.y-width/2 + 50);
+    };
+
 
 
     return self;

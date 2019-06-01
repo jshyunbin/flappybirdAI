@@ -1,9 +1,10 @@
 function Population() {
     let self = this;
 
-    self.PLAYER_NUM = 10;
+    self.PLAYER_NUM = 20;
     self.generations = 1;
     self.population = [];
+    // self.population.push(new Player());
     for (let i = 0; i < self.PLAYER_NUM; i++) self.population.push(new Player('AI'));
 
     self.matingPool = [];
@@ -19,33 +20,46 @@ function Population() {
             fitness = math.pow(fitness, 2);
             let n = int(fitness);
             if (n === 0) n = 1;
-            for (let j = 0; j < n; j++) {
-                self.matingPool.push(self.population[i].nn.gene.copy());
+            self.population[i].score = n;
+            let j = 0;
+            for (j = 0; j < self.matingPool.length; j++) {
+                if (self.matingPool[j].score < n) break;
             }
-            console.log(n);
+            self.matingPool.splice(j, 0, self.population[i]);
+            // for (let j = 0; j < n; j++) {
+            //     self.matingPool.push(self.population[i]);
+            // }
         }
-        return this;
     };
 
     self.reproduction = function() {
         while(self.population.length !== 0)
             self.population.pop();
 
-        for (let i = 0; i < self.PLAYER_NUM; i++) {
-            let temp = int(math.random(0, self.matingPool.length));
-            let tempgene = self.matingPool[temp];
-            for (let j = 0; j < 2; j++) {
-                for (let k = 0; k < 5; k++) {
-                    tempgene.weight1[j][k] += randomGaussian(0, 1);
+        for (let i = 0; i < 5; i++) {
+            for (let j = 5-i; j>0; j--) {
+                let temp = self.matingPool[i];
+                let tempweight1 = JSON.parse(JSON.stringify(temp.nn.gene.weight1));
+                let tempweight2 = JSON.parse(JSON.stringify(temp.nn.gene.weight2));
+                for (let j = 0; j < 2; j++) {
+                    for (let k = 0; k < 5; k++) {
+                        tempweight1[j][k] +=randomGaussian(0, 0.2);
+                    }
                 }
+                for (let j = 0; j < 5; j++) {
+                    tempweight2[j][0] += randomGaussian(0, 0.2);
+                }
+
+                let tempgene = new Player(type = 'AI', new DNA(tempweight1, tempweight2));
+                tempgene.nn.gene.mutate();
+                self.population.push(tempgene);
             }
-            for (let j = 0; j < 5; j++) {
-                tempgene.weight2[j][0] += randomGaussian(0, 1);
-            }
-            self.population.push(new Player('AI', self.matingPool[temp]));
         }
-        console.log(self.matingPool);
-        console.log(self.matingPool.length);
+
+        for (let i = 0; i < 5; i++) {
+            self.population.push(new Player(type='AI'));
+        }
+
         /*
         for (let i = 0; i < self.PLAYER_NUM; i++) {
             let a = int(math.random(0, self.matingPool.length));
@@ -60,7 +74,6 @@ function Population() {
          */
 
         self.generations++;
-        return this;
     };
 
 

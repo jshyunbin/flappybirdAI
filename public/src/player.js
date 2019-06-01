@@ -13,6 +13,7 @@ function Player(type='', gene=new DNA()) {
     self.isDead = false;
     self.distFromPipe = width*3/4;
     self.heightFromPipe = height/2;
+    self.score = 0;
 
 
     self.run = function() {
