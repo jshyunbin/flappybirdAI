@@ -11,6 +11,8 @@ function Game() {
     self.pipes = new Group();
     self.pipeHeight = [];
     self.gameOver = true;
+    self.bestScore = 0;
+    self.aliveBirds = 0;
     updateSprites(false);
 
 
@@ -57,6 +59,7 @@ function Game() {
 
                         if (bestPlayer_dist < self.players.population[j].bird.position.x) {
                             bestPlayer_dist = self.players.population[j].bird.position.x;
+                            if (bestPlayer_dist > self.bestScore) self.bestScore = bestPlayer_dist;
                             bestPlayer_ind = j;
                         }
                         break;
@@ -122,11 +125,12 @@ function Game() {
         // show scoreboards and current generation
         self.showScore(bestPlayer_ind);
         self.showGeneration();
-        self.showDistFromPipe(bestPlayer_ind);
+        //self.showDistFromPipe(bestPlayer_ind);
     };
 
     self.chkDead = function() {
         let chkAllDead = true;
+        self.aliveBirds = 0;
         for (let i = 0; i < self.players.population.length; i++) {
             if (self.players.population[i].isDead === true) continue;
             if (self.players.population[i].bird.position.y + self.players.population[i].bird.height / 2 > GROUND_Y || self.players.population[i].bird.overlap(self.pipes)) {
@@ -134,7 +138,10 @@ function Game() {
                 self.players.population[i].bird.velocity.x = 0;
                 self.players.population[i].isDead = true;
             }
-            else chkAllDead = false;
+            else {
+                self.aliveBirds++;
+                chkAllDead = false;
+            }
         }
         return chkAllDead;
     };
@@ -160,12 +167,13 @@ function Game() {
     };
 
     self.showScore = function(bestPlayer_ind) {
-        text("BEST PLAYER'S SCORE: "+self.players.population[bestPlayer_ind].bird.position.x, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+        text("BEST SCORE: "+self.bestScore, camera.position.x-width/2 + 10, camera.position.y-width/2 - 30);
+        text("SCORE: " +self.players.population[bestPlayer_ind].bird.position.x, camera.position.x-width/2 + 10, camera.position.y-width/2 - 10);
     };
 
     self.showGeneration = function() {
-        text("Generations: " + self.players.generations, camera.position.x-width/2+10, camera.position.y-width/2-10);
-        text("Total Birds: " + self.players.population.length, camera.position.x-width/2+10, camera.position.y-width/2+10);
+        text("Generations: " + self.players.generations, camera.position.x-width/2+10, camera.position.y-width/2+10);
+        text("Total Birds: " + self.aliveBirds+"/"+self.players.population.length, camera.position.x-width/2+10, camera.position.y-width/2+30);
     };
 
     self.showDistFromPipe = function(bestPlayer_ind) {
